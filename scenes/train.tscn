@@ -1,22 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6t617j173rbg"]
+[gd_scene load_steps=6 format=3 uid="uid://b6t617j173rbg"]
 
+[ext_resource type="Script" uid="uid://cf44df3pb508w" path="res://scripts/train.gd" id="1_8tskr"]
 [ext_resource type="Texture2D" uid="uid://cgaf2obat1say" path="res://assets/character/locomotive.png" id="1_68jl8"]
-[ext_resource type="Texture2D" uid="uid://putp5tii8fy5" path="res://assets/character/base_gun.png" id="2_d43s7"]
+[ext_resource type="PackedScene" uid="uid://dw5qm8axborso" path="res://scenes/Gun.tscn" id="3_8tskr"]
+[ext_resource type="Script" uid="uid://drgow4sg3o5vx" path="res://scripts/gun.gd" id="3_ggsvn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_68jl8"]
-size = Vector2(234, 126)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d43s7"]
+size = Vector2(20.5428, 12.3457)
 
 [node name="Train" type="CharacterBody2D"]
+script = ExtResource("1_8tskr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Locomotive" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_68jl8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -1.5)
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_68jl8")
+position = Vector2(-1.5, -4.5)
+scale = Vector2(5.59807, -5.58898)
+shape = SubResource("RectangleShape2D_d43s7")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-25, -47)
-texture = ExtResource("2_d43s7")
+[node name="Gun" parent="." instance=ExtResource("3_8tskr")]
+position = Vector2(-28, -46)
+script = ExtResource("3_ggsvn")

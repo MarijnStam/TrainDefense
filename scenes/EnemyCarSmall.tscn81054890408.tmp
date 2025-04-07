@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://by7p8jayp1v4w"]
+
+[ext_resource type="Script" uid="uid://bimkdvmdy1ilr" path="res://scripts/enemy_car_small.gd" id="1_3gck4"]
+[ext_resource type="Texture2D" uid="uid://b67ppgi0firg" path="res://assets/etc/enemy_car_1.png" id="1_p5m6a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p5m6a"]
+radius = 9.81024
+height = 21.0526
+
+[node name="EnemyCarSmall" type="CharacterBody2D"]
+script = ExtResource("1_3gck4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("1_p5m6a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.40075, 1.61688)
+shape = SubResource("CapsuleShape2D_p5m6a")
+
+[node name="speed" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.01876, 1.15786)
+fit_content = true

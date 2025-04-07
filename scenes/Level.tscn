@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccdcuc2e1kdnt" path="res://scripts/parallax_background.gd" id="1_6vs76"]
 [ext_resource type="Script" uid="uid://b62ta2lk8kkry" path="res://scripts/level.gd" id="1_qifjx"]
-[ext_resource type="PackedScene" uid="uid://b6t617j173rbg" path="res://scenes/train.tscn" id="1_uhqny"]
+[ext_resource type="PackedScene" uid="uid://b6t617j173rbg" path="res://scenes/Train.tscn" id="1_uhqny"]
 [ext_resource type="Texture2D" uid="uid://11p3wmxhd0qx" path="res://assets/levels/muddyBackgroundBig.png" id="2_6vs76"]
 [ext_resource type="Texture2D" uid="uid://bgjhh5rm6hj1m" path="res://assets/levels/tracks.png" id="4_qifjx"]
 
@@ -32,10 +32,17 @@ texture = ExtResource("4_qifjx")
 region_rect = Rect2(-0.177, 14.22, 1270, 42.35)
 
 [node name="Train" parent="." instance=ExtResource("1_uhqny")]
-position = Vector2(61, 369)
+position = Vector2(58, 368)
 
 [node name="SpeedDisplay" type="RichTextLabel" parent="."]
 offset_left = 20.0
 offset_top = 14.0
 offset_right = 113.0
 offset_bottom = 54.0
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
