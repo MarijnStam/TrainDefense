@@ -22,4 +22,7 @@ shape = SubResource("RectangleShape2D_h5px7")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gp53h")
 
+[node name="Nozzle" type="Node2D" parent="."]
+position = Vector2(13, 6)
+
 [connection signal="timeout" from="Fire_Timer" to="Fire_Timer" method="_on_timeout"]
